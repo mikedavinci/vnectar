@@ -3,6 +3,7 @@ import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -56,6 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} ${jetbrains.variable}`}>
       <body className={`${inter.className} antialiased bg-white text-primary-950 overflow-x-hidden`}>
+        <ScrollProgress />
         <Header />
         <main className="min-h-screen">
           {children}

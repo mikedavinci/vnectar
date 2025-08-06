@@ -13,21 +13,32 @@
   
   /* Custom scrollbar */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
   }
   
   ::-webkit-scrollbar-track {
-    background: #f8f9fa;
+    background: #f1f3f4;
   }
   
   ::-webkit-scrollbar-thumb {
-    background: #adb5bd;
-    border-radius: 4px;
+    background: #9ca3af;
+    border-radius: 6px;
     transition: background-color 0.3s ease;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: #6c757d;
+    background: #6b7280;
+  }
+  
+  /* Smooth focus transitions */
+  *:focus {
+    outline: none;
+  }
+  
+  /* Enhanced selection colors */
+  ::selection {
+    background-color: #e5e7eb;
+    color: #111827;
   }
 }
 
@@ -117,7 +128,21 @@
   
   /* Focus styles */
   .focus-ring {
-    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-all duration-200;
+  }
+  
+  /* Enhanced form styles */
+  .form-input {
+    @apply w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 bg-white;
+  }
+  
+  .form-input:focus {
+    @apply shadow-soft;
+  }
+  
+  /* Loading animation */
+  .loading-spinner {
+    @apply w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin;
   }
   
   /* Backdrop blur utilities */
@@ -136,6 +161,24 @@
   
   .shadow-strong {
     box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 2px 10px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Hover lift effect */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-strong;
+  }
+  
+  /* Gradient animations */
+  .gradient-shift {
+    background: linear-gradient(-45deg, #000000, #374151, #111827, #1f2937);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 }
 
