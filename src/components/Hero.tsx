@@ -86,7 +86,7 @@ export default function Hero() {
           </motion.h1>
 
           {/* Subheadline */}
-          <motion.p variants={itemVariants} className="body-lg text-primary-600 mb-8 max-w-3xl mx-auto">
+          <motion.p variants={itemVariants} className="body-lg text-primary-500 mb-8 max-w-3xl mx-auto">
             Join <span className="font-bold text-primary-950">500+ businesses</span> already using Vision Nectar to 
             automate their workflows, capture more leads, and scale faster than ever before. 
             Choose the plan that matches your growth ambitions.
@@ -96,15 +96,15 @@ export default function Hero() {
           <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12 max-w-2xl mx-auto">
             <div className="text-center">
               <div className="text-3xl font-bold text-primary-950 mb-2">500+</div>
-              <div className="text-sm text-primary-600">Active Businesses</div>
+              <div className="text-sm text-primary-500">Active Businesses</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-primary-950 mb-2">10x</div>
-              <div className="text-sm text-primary-600">Lead Generation</div>
+              <div className="text-sm text-primary-500">Lead Generation</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-primary-950 mb-2">30 Days</div>
-              <div className="text-sm text-primary-600">ROI Guarantee</div>
+              <div className="text-sm text-primary-500">ROI Guarantee</div>
             </div>
           </motion.div>
 
