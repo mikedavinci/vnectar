@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -53,25 +54,29 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 className={`text-sm font-medium transition-all duration-300 hover:text-primary-600 relative group animate-slide-down ${
-                  isScrolled ? 'text-primary-800' : 'text-white'
+                  isScrolled ? 'text-primary-800' : 'text-primary-950 drop-shadow-sm'
                 }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-800 transition-all duration-300 group-hover:w-full"></span>
+                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                  isScrolled ? 'bg-primary-800' : 'bg-primary-950'
+                }`}></span>
               </a>
             ))}
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center">
-            <button className={`px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-in ${
-              isScrolled 
-                ? 'bg-primary-950 text-white hover:bg-primary-800' 
-                : 'bg-white text-primary-950 hover:bg-primary-100'
-            }`}>
-              Get Started
-            </button>
+            <Link href="/contact-us">
+              <button className={`px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-in ${
+                isScrolled 
+                  ? 'bg-primary-950 text-white hover:bg-primary-800' 
+                  : 'bg-primary-950 text-white hover:bg-primary-800 shadow-lg'
+              }`}>
+                Get Started
+              </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -79,7 +84,7 @@ export default function Header() {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`p-2 rounded-md transition-colors duration-300 ${
-                isScrolled ? 'text-primary-800 hover:bg-primary-100' : 'text-white hover:bg-white/10'
+                isScrolled ? 'text-primary-800 hover:bg-primary-100' : 'text-primary-950 hover:bg-primary-100/20 drop-shadow-sm'
               }`}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -102,9 +107,14 @@ export default function Header() {
                   {item.name}
                 </a>
               ))}
-              <button className="w-full mt-4 px-6 py-3 bg-primary-950 text-white rounded-full font-medium hover:bg-primary-800 transition-all duration-300 animate-scale-in">
-                Get Started
-              </button>
+              <Link href="/contact-us" className="w-full">
+                <button 
+                  className="w-full mt-4 px-6 py-3 bg-primary-950 text-white rounded-full font-medium hover:bg-primary-800 transition-all duration-300 animate-scale-in"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Get Started
+                </button>
+              </Link>
             </div>
           </div>
         )}

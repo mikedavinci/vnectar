@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ArrowRight, Sparkles, Clock, Shield } from 'lucide-react';
+import Link from 'next/link';
 
 export default function CTASection() {
   const [ref, inView] = useInView({
@@ -104,21 +105,25 @@ export default function CTASection() {
 
           {/* CTA Buttons */}
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-white text-primary-950 rounded-full font-bold text-lg hover:bg-primary-100 transition-all duration-300 group shadow-lg"
-            >
-              Start Growing Today
-              <ArrowRight className="w-5 h-5 ml-2 inline group-hover:translate-x-1 transition-transform duration-300" />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 border-2 border-white text-white rounded-full font-bold text-lg hover:bg-white hover:text-primary-950 transition-all duration-300"
-            >
-              Schedule Free Consultation
-            </motion.button>
+            <Link href="/contact-us">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-10 py-4 bg-white text-primary-950 rounded-full font-bold text-lg hover:bg-primary-100 transition-all duration-300 group shadow-2xl hover:shadow-white/20"
+              >
+                Start Growing Today
+                <ArrowRight className="w-5 h-5 ml-2 inline group-hover:translate-x-1 transition-transform duration-300" />
+              </motion.button>
+            </Link>
+            <Link href="/contact-us">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-10 py-4 border-2 border-white text-white rounded-full font-bold text-lg hover:bg-white hover:text-primary-950 transition-all duration-300 shadow-lg hover:shadow-white/20"
+              >
+                Schedule Free Consultation
+              </motion.button>
+            </Link>
           </motion.div>
 
           <motion.p variants={itemVariants} className="text-sm text-primary-300">

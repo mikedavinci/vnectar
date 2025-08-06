@@ -20,7 +20,11 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
-export default function ContactSection() {
+interface ContactSectionProps {
+  isStandalonePage?: boolean;
+}
+
+export default function ContactSection({ isStandalonePage = false }: ContactSectionProps) {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -139,22 +143,28 @@ export default function ContactSection() {
   }
 
   return (
-    <section ref={ref} id="contact" className="section-padding bg-primary-50">
+    <section 
+      ref={ref} 
+      id="contact" 
+      className={isStandalonePage ? "py-8" : "section-padding bg-primary-50"}
+    >
       <div className="container-custom">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="text-center mb-16"
-        >
-          <motion.h2 variants={itemVariants} className="heading-lg mb-6">
-            Ready to Get Started?
-          </motion.h2>
-          <motion.p variants={itemVariants} className="body-md text-primary-600 max-w-3xl mx-auto">
-            Let's discuss how Vision Nectar can transform your business. 
-            Get a custom quote and strategy session within 24 hours.
-          </motion.p>
-        </motion.div>
+        {!isStandalonePage && (
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            className="text-center mb-16"
+          >
+            <motion.h2 variants={itemVariants} className="heading-lg mb-6">
+              Ready to Get Started?
+            </motion.h2>
+            <motion.p variants={itemVariants} className="body-md text-primary-600 max-w-3xl mx-auto">
+              Let's discuss how Vision Nectar can transform your business. 
+              Get a custom quote and strategy session within 24 hours.
+            </motion.p>
+          </motion.div>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Information */}
@@ -211,7 +221,9 @@ export default function ContactSection() {
             variants={itemVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            className="bg-white rounded-2xl p-8 shadow-soft"
+            className={`bg-white rounded-2xl p-8 shadow-soft ${
+              isStandalonePage ? 'shadow-strong backdrop-blur-sm bg-white/95' : ''
+            }`}
           >
             <h3 className="heading-sm mb-8">Start Your Project</h3>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -223,7 +235,7 @@ export default function ContactSection() {
                   <input
                     {...register('name')}
                     type="text"
-                    className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 bg-white shadow-sm hover:shadow-md focus:shadow-lg"
                     placeholder="John Doe"
                   />
                   {errors.name && (
@@ -237,7 +249,7 @@ export default function ContactSection() {
                   <input
                     {...register('email')}
                     type="email"
-                    className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 bg-white shadow-sm hover:shadow-md focus:shadow-lg"
                     placeholder="john@company.com"
                   />
                   {errors.email && (
@@ -254,7 +266,7 @@ export default function ContactSection() {
                   <input
                     {...register('company')}
                     type="text"
-                    className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 bg-white shadow-sm hover:shadow-md focus:shadow-lg"
                     placeholder="Your Company"
                   />
                   {errors.company && (
@@ -268,7 +280,7 @@ export default function ContactSection() {
                   <input
                     {...register('phone')}
                     type="tel"
-                    className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 bg-white shadow-sm hover:shadow-md focus:shadow-lg"
                     placeholder="+1 (555) 123-4567"
                   />
                 </div>
@@ -281,7 +293,7 @@ export default function ContactSection() {
                   </label>
                   <select
                     {...register('service')}
-                    className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 bg-white shadow-sm hover:shadow-md focus:shadow-lg"
                   >
                     <option value="">Select a service</option>
                     {services.map((service) => (
@@ -300,7 +312,7 @@ export default function ContactSection() {
                   </label>
                   <select
                     {...register('budget')}
-                    className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 bg-white shadow-sm hover:shadow-md focus:shadow-lg"
                   >
                     <option value="">Select budget range</option>
                     {budgetRanges.map((range) => (
@@ -322,7 +334,7 @@ export default function ContactSection() {
                 <textarea
                   {...register('message')}
                   rows={4}
-                  className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 resize-none"
+                  className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 resize-none bg-white shadow-sm hover:shadow-md focus:shadow-lg"
                   placeholder="Tell us about your project goals, timeline, and any specific requirements..."
                 />
                 {errors.message && (
@@ -335,22 +347,22 @@ export default function ContactSection() {
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed group"
+                className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed group shadow-xl hover:shadow-2xl"
               >
                 {isSubmitting ? (
                   <div className="flex items-center justify-center">
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-3" />
                     Sending...
                   </div>
                 ) : (
                   <>
                     Get Custom Quote
-                    <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                    <Send className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                   </>
                 )}
               </motion.button>
 
-              <p className="text-xs text-primary-500 text-center">
+              <p className="text-xs text-primary-500 text-center font-medium bg-primary-25 px-4 py-2 rounded-lg">
                 By submitting this form, you agree to our privacy policy. 
                 We'll respond within 2 hours during business hours.
               </p>

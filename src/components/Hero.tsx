@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Zap, Target } from 'lucide-react';
+import Link from 'next/link';
+import VideoBackground from './VideoBackground';
 
 export default function Hero() {
   const containerVariants = {
@@ -39,29 +41,29 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-primary-50 to-primary-100">
+    <VideoBackground>
       {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden z-10 pointer-events-none">
         <motion.div
           variants={floatingVariants}
           animate="animate"
-          className="absolute top-20 left-10 w-72 h-72 bg-primary-100 rounded-full mix-blend-multiply filter blur-xl opacity-70"
+          className="absolute top-20 left-10 w-72 h-72 bg-primary-200/30 rounded-full mix-blend-multiply filter blur-xl opacity-60"
         />
         <motion.div
           variants={floatingVariants}
           animate="animate"
           style={{ animationDelay: '2s' }}
-          className="absolute top-40 right-10 w-72 h-72 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70"
+          className="absolute top-40 right-10 w-72 h-72 bg-primary-300/30 rounded-full mix-blend-multiply filter blur-xl opacity-60"
         />
         <motion.div
           variants={floatingVariants}
           animate="animate"
           style={{ animationDelay: '4s' }}
-          className="absolute -bottom-32 left-1/2 transform -translate-x-1/2 w-72 h-72 bg-primary-150 rounded-full mix-blend-multiply filter blur-xl opacity-70"
+          className="absolute -bottom-32 left-1/2 transform -translate-x-1/2 w-72 h-72 bg-primary-400/30 rounded-full mix-blend-multiply filter blur-xl opacity-60"
         />
       </div>
 
-      <div className="container-custom relative z-10 pt-20">
+      <div className="container-custom relative z-20 pt-20">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -70,7 +72,7 @@ export default function Hero() {
         >
           {/* Limited Time Offer Badge */}
           <motion.div variants={itemVariants} className="mb-8">
-            <div className="inline-flex items-center px-6 py-3 bg-primary-950 text-white rounded-full text-sm font-medium shadow-lg">
+            <div className="inline-flex items-center px-6 py-3 bg-primary-950 text-white rounded-full text-sm font-medium shadow-xl backdrop-blur-sm border border-primary-800/20">
               <Zap className="w-4 h-4 mr-2 text-yellow-400" />
               Limited Time: Save 20% on Annual Plans
             </div>
@@ -108,21 +110,25 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="btn-primary group"
-            >
-              Start Growing Today
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="btn-secondary"
-            >
-              View Our Work
-            </motion.button>
+            <Link href="/contact-us">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="btn-primary group shadow-xl"
+              >
+                Start Growing Today
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              </motion.button>
+            </Link>
+            <Link href="#portfolio">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="btn-secondary shadow-lg backdrop-blur-sm"
+              >
+                View Our Work
+              </motion.button>
+            </Link>
           </motion.div>
 
           {/* Feature Icons */}
@@ -148,20 +154,20 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-primary-300 rounded-full flex justify-center"
+          className="w-6 h-10 border-2 border-primary-600/60 rounded-full flex justify-center backdrop-blur-sm bg-white/20"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-primary-600 rounded-full mt-2"
+            className="w-1 h-3 bg-primary-800 rounded-full mt-2"
           />
         </motion.div>
       </motion.div>
-    </section>
+    </VideoBackground>
   );
 }
