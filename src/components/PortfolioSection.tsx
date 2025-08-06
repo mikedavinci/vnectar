@@ -75,13 +75,53 @@ export default function PortfolioSection() {
   ];
 
   return (
-    <section ref={ref} id="portfolio" className="section-padding bg-white">
+    <section ref={ref} id="portfolio" className="section-padding bg-white relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            rotate: [0, -4, 0],
+          }}
+          transition={{
+            duration: 26,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="absolute top-10 left-10 w-80 h-80 bg-primary-100 rounded-full opacity-30"
+        />
+        <motion.div
+          animate={{
+            scale: [1.1, 1, 1.1],
+            rotate: [0, 6, 0],
+          }}
+          transition={{
+            duration: 32,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="absolute bottom-10 right-10 w-96 h-96 bg-primary-200 rounded-full opacity-20"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.15, 1],
+            rotate: [0, -8, 0],
+          }}
+          transition={{
+            duration: 28,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-primary-150 rounded-full opacity-15"
+        />
+      </div>
+
       <div className="container-custom">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="text-center mb-16"
+          className="text-center mb-16 relative z-10"
         >
           <motion.h2 variants={itemVariants} className="heading-lg mb-6">
             Success Stories
@@ -96,7 +136,7 @@ export default function PortfolioSection() {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="space-y-16"
+          className="space-y-16 relative z-10"
         >
           {caseStudies.map((study, index) => (
             <motion.div
@@ -162,15 +202,6 @@ export default function PortfolioSection() {
                       </span>
                     ))}
                   </div>
-
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="btn-secondary group"
-                  >
-                    View Full Case Study
-                    <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                  </motion.button>
                 </div>
               </div>
             </motion.div>
