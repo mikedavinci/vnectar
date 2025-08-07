@@ -26,7 +26,7 @@ export default function VideoBackground({
         >
           <source src="/images/855564-hd_1280_720_24fps.mp4" type="video/mp4" />
         </video>
-        <div className={`absolute inset-0 bg-white/${overlayOpacity} backdrop-blur-[2px]`} />
+        <div className={`absolute inset-0 bg-black/40 backdrop-blur-[1px]`} />
       </div>
 
       {/* Content */}

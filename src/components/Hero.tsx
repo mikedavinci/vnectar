@@ -24,19 +24,15 @@ export default function Hero() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   };
 
-  const floatingVariants = {
-    animate: {
-      y: [-10, 10, -10],
-      transition: {
-        duration: 6,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
+  const floatingAnimation = {
+    y: [-10, 10, -10],
+    transition: {
+      duration: 6,
+      repeat: Infinity,
     },
   };
 
@@ -45,20 +41,27 @@ export default function Hero() {
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden z-10 pointer-events-none">
         <motion.div
-          variants={floatingVariants}
-          animate="animate"
+          animate={floatingAnimation}
           className="absolute top-20 left-10 w-72 h-72 bg-primary-200/30 rounded-full mix-blend-multiply filter blur-xl opacity-60"
         />
         <motion.div
-          variants={floatingVariants}
-          animate="animate"
-          style={{ animationDelay: '2s' }}
+          animate={{
+            ...floatingAnimation,
+            transition: {
+              ...floatingAnimation.transition,
+              delay: 2,
+            },
+          }}
           className="absolute top-40 right-10 w-72 h-72 bg-primary-300/30 rounded-full mix-blend-multiply filter blur-xl opacity-60"
         />
         <motion.div
-          variants={floatingVariants}
-          animate="animate"
-          style={{ animationDelay: '4s' }}
+          animate={{
+            ...floatingAnimation,
+            transition: {
+              ...floatingAnimation.transition,
+              delay: 4,
+            },
+          }}
           className="absolute -bottom-32 left-1/2 transform -translate-x-1/2 w-72 h-72 bg-primary-400/30 rounded-full mix-blend-multiply filter blur-xl opacity-60"
         />
       </div>
@@ -86,30 +89,47 @@ export default function Hero() {
           </motion.h1>
 
           {/* Subheadline */}
-          <motion.p variants={itemVariants} className="body-lg text-primary-500 mb-8 max-w-3xl mx-auto">
-            Join <span className="font-bold text-primary-950">500+ businesses</span> already using Vision Nectar to 
-            automate their workflows, capture more leads, and scale faster than ever before. 
-            Choose the plan that matches your growth ambitions.
+          <motion.p
+            variants={itemVariants}
+            className="body-lg text-primary-500 mb-8 max-w-3xl mx-auto"
+          >
+            Join{' '}
+            <span className="font-bold text-primary-950">500+ businesses</span>{' '}
+            already using Vision Nectar to automate their workflows, capture
+            more leads, and scale faster than ever before. Choose the plan that
+            matches your growth ambitions.
           </motion.p>
 
           {/* Social Proof Stats */}
-          <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12 max-w-2xl mx-auto">
+          <motion.div
+            variants={itemVariants}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12 max-w-2xl mx-auto"
+          >
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary-950 mb-2">500+</div>
+              <div className="text-3xl font-bold text-primary-950 mb-2">
+                500+
+              </div>
               <div className="text-sm text-primary-500">Active Businesses</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary-950 mb-2">10x</div>
+              <div className="text-3xl font-bold text-primary-950 mb-2">
+                10x
+              </div>
               <div className="text-sm text-primary-500">Lead Generation</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary-950 mb-2">30 Days</div>
+              <div className="text-3xl font-bold text-primary-950 mb-2">
+                30 Days
+              </div>
               <div className="text-sm text-primary-500">ROI Guarantee</div>
             </div>
           </motion.div>
 
           {/* CTA Buttons */}
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+          >
             <Link href="/contact-us">
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -117,7 +137,6 @@ export default function Hero() {
                 className="btn-primary group shadow-xl"
               >
                 Start Growing Today
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </motion.button>
             </Link>
             <Link href="#portfolio">
@@ -132,7 +151,10 @@ export default function Hero() {
           </motion.div>
 
           {/* Feature Icons */}
-          <motion.div variants={itemVariants} className="flex flex-wrap justify-center items-center gap-8 text-primary-600">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap justify-center items-center gap-8 text-primary-600"
+          >
             <div className="flex items-center space-x-2">
               <Sparkles className="w-5 h-5" />
               <span className="text-sm font-medium">Setup in 48 hours</span>

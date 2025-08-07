@@ -5,7 +5,15 @@ import { useInView } from 'react-intersection-observer';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { Mail, Phone, MapPin, Send, CheckCircle, Clock, Users } from 'lucide-react';
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  CheckCircle,
+  Clock,
+  Users,
+} from 'lucide-react';
 import { useState } from 'react';
 
 const contactSchema = z.object({
@@ -24,7 +32,9 @@ interface ContactSectionProps {
   isStandalonePage?: boolean;
 }
 
-export default function ContactSection({ isStandalonePage = false }: ContactSectionProps) {
+export default function ContactSection({
+  isStandalonePage = false,
+}: ContactSectionProps) {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -45,7 +55,7 @@ export default function ContactSection({ isStandalonePage = false }: ContactSect
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     console.log('Form submitted:', data);
     setIsSubmitted(true);
     setIsSubmitting(false);
@@ -69,7 +79,6 @@ export default function ContactSection({ isStandalonePage = false }: ContactSect
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   };
@@ -110,7 +119,7 @@ export default function ContactSection({ isStandalonePage = false }: ContactSect
     '$10,000 - $25,000',
     '$25,000 - $50,000',
     '$50,000+',
-    'Let\'s discuss',
+    "Let's discuss",
   ];
 
   if (isSubmitted) {
@@ -127,8 +136,9 @@ export default function ContactSection({ isStandalonePage = false }: ContactSect
             </div>
             <h2 className="heading-md mb-4">Thank You!</h2>
             <p className="body-md text-primary-600 mb-8">
-              We've received your message and will get back to you within 2 hours. 
-              Our team is excited to help transform your business with AI.
+              We've received your message and will get back to you within 2
+              hours. Our team is excited to help transform your business with
+              AI.
             </p>
             <button
               onClick={() => setIsSubmitted(false)}
@@ -143,25 +153,28 @@ export default function ContactSection({ isStandalonePage = false }: ContactSect
   }
 
   return (
-    <section 
-      ref={ref} 
-      id="contact" 
-      className={isStandalonePage ? "py-8" : "section-padding bg-primary-50"}
+    <section
+      ref={ref}
+      id="contact"
+      className={isStandalonePage ? 'py-8' : 'section-padding bg-primary-50'}
     >
       <div className="container-custom">
         {!isStandalonePage && (
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            animate={inView ? "visible" : "hidden"}
+            animate={inView ? 'visible' : 'hidden'}
             className="text-center mb-16"
           >
             <motion.h2 variants={itemVariants} className="heading-lg mb-6">
               Ready to Get Started?
             </motion.h2>
-            <motion.p variants={itemVariants} className="body-md text-primary-600 max-w-3xl mx-auto">
-              Let's discuss how Vision Nectar can transform your business. 
-              Get a custom quote and strategy session within 24 hours.
+            <motion.p
+              variants={itemVariants}
+              className="body-md text-primary-600 max-w-3xl mx-auto"
+            >
+              Let's discuss how Vision Nectar can transform your business. Get a
+              custom quote and strategy session within 24 hours.
             </motion.p>
           </motion.div>
         )}
@@ -171,7 +184,7 @@ export default function ContactSection({ isStandalonePage = false }: ContactSect
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            animate={inView ? "visible" : "hidden"}
+            animate={inView ? 'visible' : 'hidden'}
             className="space-y-8"
           >
             <motion.div variants={itemVariants}>
@@ -187,9 +200,15 @@ export default function ContactSection({ isStandalonePage = false }: ContactSect
                       <info.icon className="w-6 h-6 text-primary-700" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-primary-950 mb-1">{info.title}</h4>
-                      <p className="text-primary-800 font-medium mb-1">{info.content}</p>
-                      <p className="text-sm text-primary-600">{info.description}</p>
+                      <h4 className="font-semibold text-primary-950 mb-1">
+                        {info.title}
+                      </h4>
+                      <p className="text-primary-800 font-medium mb-1">
+                        {info.content}
+                      </p>
+                      <p className="text-sm text-primary-600">
+                        {info.description}
+                      </p>
                     </div>
                   </motion.div>
                 ))}
@@ -197,16 +216,25 @@ export default function ContactSection({ isStandalonePage = false }: ContactSect
             </motion.div>
 
             {/* Quick Stats */}
-            <motion.div variants={itemVariants} className="bg-white rounded-2xl p-8 shadow-soft">
-              <h4 className="font-semibold text-primary-950 mb-6">Why Choose Vision Nectar?</h4>
+            <motion.div
+              variants={itemVariants}
+              className="bg-white rounded-2xl p-8 shadow-soft"
+            >
+              <h4 className="font-semibold text-primary-950 mb-6">
+                Why Choose Vision Nectar?
+              </h4>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Clock className="w-5 h-5 text-green-600" />
-                  <span className="text-primary-700">48-hour setup guarantee</span>
+                  <span className="text-primary-700">
+                    48-hour setup guarantee
+                  </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Users className="w-5 h-5 text-blue-600" />
-                  <span className="text-primary-700">500+ successful projects</span>
+                  <span className="text-primary-700">
+                    500+ successful projects
+                  </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-5 h-5 text-purple-600" />
@@ -220,9 +248,11 @@ export default function ContactSection({ isStandalonePage = false }: ContactSect
           <motion.div
             variants={itemVariants}
             initial="hidden"
-            animate={inView ? "visible" : "hidden"}
+            animate={inView ? 'visible' : 'hidden'}
             className={`bg-white rounded-2xl p-8 shadow-soft ${
-              isStandalonePage ? 'shadow-strong backdrop-blur-sm bg-white/95' : ''
+              isStandalonePage
+                ? 'shadow-strong backdrop-blur-sm bg-white/95'
+                : ''
             }`}
           >
             <h3 className="heading-sm mb-8">Start Your Project</h3>
@@ -239,7 +269,9 @@ export default function ContactSection({ isStandalonePage = false }: ContactSect
                     placeholder="John Doe"
                   />
                   {errors.name && (
-                    <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
+                    <p className="mt-1 text-sm text-red-600">
+                      {errors.name.message}
+                    </p>
                   )}
                 </div>
                 <div>
@@ -253,7 +285,9 @@ export default function ContactSection({ isStandalonePage = false }: ContactSect
                     placeholder="john@company.com"
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+                    <p className="mt-1 text-sm text-red-600">
+                      {errors.email.message}
+                    </p>
                   )}
                 </div>
               </div>
@@ -270,7 +304,9 @@ export default function ContactSection({ isStandalonePage = false }: ContactSect
                     placeholder="Your Company"
                   />
                   {errors.company && (
-                    <p className="mt-1 text-sm text-red-600">{errors.company.message}</p>
+                    <p className="mt-1 text-sm text-red-600">
+                      {errors.company.message}
+                    </p>
                   )}
                 </div>
                 <div>
@@ -303,7 +339,9 @@ export default function ContactSection({ isStandalonePage = false }: ContactSect
                     ))}
                   </select>
                   {errors.service && (
-                    <p className="mt-1 text-sm text-red-600">{errors.service.message}</p>
+                    <p className="mt-1 text-sm text-red-600">
+                      {errors.service.message}
+                    </p>
                   )}
                 </div>
                 <div>
@@ -322,7 +360,9 @@ export default function ContactSection({ isStandalonePage = false }: ContactSect
                     ))}
                   </select>
                   {errors.budget && (
-                    <p className="mt-1 text-sm text-red-600">{errors.budget.message}</p>
+                    <p className="mt-1 text-sm text-red-600">
+                      {errors.budget.message}
+                    </p>
                   )}
                 </div>
               </div>
@@ -338,7 +378,9 @@ export default function ContactSection({ isStandalonePage = false }: ContactSect
                   placeholder="Tell us about your project goals, timeline, and any specific requirements..."
                 />
                 {errors.message && (
-                  <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
+                  <p className="mt-1 text-sm text-red-600">
+                    {errors.message.message}
+                  </p>
                 )}
               </div>
 
@@ -347,13 +389,13 @@ export default function ContactSection({ isStandalonePage = false }: ContactSect
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed group shadow-xl hover:shadow-2xl"
+                className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed group shadow-xl hover:shadow-2xl flex items-center justify-center"
               >
                 {isSubmitting ? (
-                  <div className="flex items-center justify-center">
+                  <>
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-3" />
                     Sending...
-                  </div>
+                  </>
                 ) : (
                   <>
                     Get Custom Quote
@@ -363,8 +405,8 @@ export default function ContactSection({ isStandalonePage = false }: ContactSect
               </motion.button>
 
               <p className="text-xs text-primary-500 text-center font-medium bg-primary-25 px-4 py-2 rounded-lg">
-                By submitting this form, you agree to our privacy policy. 
-                We'll respond within 2 hours during business hours.
+                By submitting this form, you agree to our privacy policy. We'll
+                respond within 2 hours during business hours.
               </p>
             </form>
           </motion.div>
