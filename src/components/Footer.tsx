@@ -1,6 +1,7 @@
 'use client';
 
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -18,18 +19,12 @@ export default function Footer() {
       value: '+1 (555) 123-4567',
       href: 'tel:+15551234567',
     },
-    {
-      icon: MapPin,
-      label: 'Location',
-      value: 'San Francisco, CA',
-      href: '#',
-    },
   ];
 
   return (
     <footer className="bg-white border-t border-primary-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Contact Information */}
+        {/* Contact Information and Logo */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
           {contactInfo.map((info) => (
             <a
@@ -48,6 +43,24 @@ export default function Footer() {
               </div>
             </a>
           ))}
+
+          {/* Logo */}
+          <div className="flex flex-col items-center text-center space-y-3">
+            <div className="w-32 h-32 flex items-center justify-center">
+              <Image
+                src="/images/logoWid.png"
+                alt="Vision Nectar Logo"
+                width={128}
+                height={128}
+                className="object-contain"
+              />
+            </div>
+            {/* <div>
+              <p className="text-sm font-semibold text-primary-950">
+                Vision Nectar
+              </p>
+            </div> */}
+          </div>
         </div>
 
         {/* Bottom Section */}
