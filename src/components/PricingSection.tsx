@@ -12,6 +12,7 @@ import {
   Instagram,
   Phone,
   Video,
+  Globe,
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -68,7 +69,7 @@ export default function PricingSection() {
         '📱 Mobile App + AI Tokens Included (No Hidden Fees)',
       ],
       cta: '🚀 Start Growing Today',
-      highlights: ['⚡ Setup in 48 hours', '💰 Money-back guarantee'],
+      highlights: ['⚡ Setup in 14 - 21 days', '💰 Money-back guarantee'],
       popular: true,
     },
     {
@@ -85,14 +86,14 @@ export default function PricingSection() {
         { icon: MessageCircle, name: 'Facebook Messenger' },
         { icon: Phone, name: 'WhatsApp' },
         { icon: Instagram, name: 'Instagram' },
-        { icon: Video, name: 'LiveChat' },
+        { icon: Globe, name: 'LiveChat' },
       ],
       features: [
         '✨ Everything in Ignite PLUS:',
         '🤖 CRM Integration - Integration for CRM',
-        '📧 Automated Email Campaign: 1000 emails curated to personal target market',
+        '📧 Automated Email Campaign: 100 emails curated to personal target market',
         '🏠 Landing page to on ramp users to AI Chatbot',
-        '📱 Facebook, Instagram, Whatsapp, Live Chat',
+        '📱 Facebook, Instagram, Whatsapp, Site Chat',
         '🚀 Run 2 Social media campaigns ($400 minimum budget)',
         "🤖 AI Powered using Anthropic's Claude Sonnet model",
       ],
@@ -114,7 +115,7 @@ export default function PricingSection() {
         { icon: MessageCircle, name: 'Facebook Messenger' },
         { icon: Phone, name: 'WhatsApp' },
         { icon: Instagram, name: 'Instagram' },
-        { icon: Video, name: 'LiveChat' },
+        { icon: Globe, name: 'Site Chat' },
         { icon: Phone, name: 'Viber' },
         { icon: Star, name: 'Custom' },
       ],
@@ -146,7 +147,7 @@ export default function PricingSection() {
           <motion.div variants={cardVariants} className="mb-6">
             <span className="inline-flex items-center px-4 py-2 bg-primary-100 text-primary-800 rounded-full text-sm font-medium">
               <Zap className="w-4 h-4 mr-2" />
-              Limited Time: Save 20% on Annual Plans
+              Lead Generation in 14-21 days
             </span>
           </motion.div>
           <motion.h2 variants={cardVariants} className="heading-lg mb-6">
@@ -247,21 +248,21 @@ export default function PricingSection() {
                       {plan.guarantee}
                     </div>
                   )}
-                  {plan.leadGuarantee && (
+                  {/* {plan.leadGuarantee && (
                     <div className="text-blue-600 font-semibold text-sm mb-2">
                       {plan.leadGuarantee}
                     </div>
-                  )}
-                  {plan.leadMultiplier && (
+                  )} */}
+                  {/* {plan.leadMultiplier && (
                     <div className="text-orange-600 font-semibold text-sm mb-2">
                       {plan.leadMultiplier}
                     </div>
-                  )}
-                  {plan.whiteGlove && (
+                  )} */}
+                  {/* {plan.whiteGlove && (
                     <div className="text-purple-600 font-semibold text-sm mb-2">
                       {plan.whiteGlove}
                     </div>
-                  )}
+                  )} */}
                 </div>
 
                 {/* Features */}
@@ -313,7 +314,7 @@ export default function PricingSection() {
         </motion.div>
 
         {/* Add-ons Section */}
-        <motion.div
+        {/* <motion.div
           variants={cardVariants}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
@@ -323,7 +324,7 @@ export default function PricingSection() {
             Show Essential Add-Ons
             <ArrowRight className="w-4 h-4 ml-2" />
           </button>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

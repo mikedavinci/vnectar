@@ -54,12 +54,32 @@ export default function ContactSection({
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log('Form submitted:', data);
-    setIsSubmitted(true);
-    setIsSubmitting(false);
-    reset();
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setIsSubmitted(true);
+        reset();
+      } else {
+        console.error('Form submission failed:', result.message);
+        // You could add error state handling here
+        alert('Failed to submit form. Please try again.');
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+      alert('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const containerVariants = {
@@ -188,7 +208,7 @@ export default function ContactSection({
             className="space-y-8"
           >
             <motion.div variants={itemVariants}>
-              <h3 className="heading-sm mb-8 text-white drop-shadow-lg">
+              <h3 className="heading-sm mb-8 text-black drop-shadow-lg">
                 Get in Touch
               </h3>
               <div className="space-y-6">
@@ -228,9 +248,7 @@ export default function ContactSection({
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Clock className="w-5 h-5 text-green-600" />
-                  <span className="text-primary-700">
-                    14 days setup guarantee
-                  </span>
+                  <span className="text-primary-700">14 - 21 days setup</span>
                 </div>
                 {/* <div className="flex items-center space-x-3">
                   <Users className="w-5 h-5 text-blue-600" />
@@ -240,7 +258,9 @@ export default function ContactSection({
                 </div> */}
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-5 h-5 text-purple-600" />
-                  <span className="text-primary-700">90-day ROI guarantee</span>
+                  <span className="text-primary-700">
+                    10 new leads in 30 days{' '}
+                  </span>
                 </div>
               </div>
             </motion.div>
@@ -319,7 +339,7 @@ export default function ContactSection({
                     {...register('phone')}
                     type="tel"
                     className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 bg-white shadow-sm hover:shadow-md focus:shadow-lg"
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="+1 (956) 605-8337"
                   />
                 </div>
               </div>

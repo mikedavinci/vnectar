@@ -77,7 +77,7 @@ export default function Hero() {
           <motion.div variants={itemVariants} className="mb-8">
             <div className="inline-flex items-center px-6 py-3 bg-primary-950 text-white rounded-full text-sm font-medium shadow-xl backdrop-blur-sm border border-primary-800/20">
               <Zap className="w-4 h-4 mr-2 text-yellow-400" />
-              Limited Time: Save 20% on Annual Plans
+              Lead Generation in 14-21 days
             </div>
           </motion.div>
 
@@ -101,22 +101,28 @@ export default function Hero() {
             matches your growth ambitions.
           </motion.p>
 
-          {/* Social Proof Stats */}
+          {/* Three-Step Process */}
           <motion.div
             variants={itemVariants}
             className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12 max-w-2xl mx-auto"
           >
             <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">$100k+</div>
-              <div className="text-sm text-white/70">Average Savings</div>
+              <div className="text-3xl font-bold text-white mb-2">1</div>
+              <div className="text-xl text-white/70 font-medium">
+                Understand Your Business
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">10x</div>
-              <div className="text-sm text-white/70">Lead Generation</div>
+              <div className="text-3xl font-bold text-white mb-2">2</div>
+              <div className="text-xl text-white/70 font-medium">
+                Implement Automation
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">30 Days</div>
-              <div className="text-sm text-white/70">ROI Guarantee</div>
+              <div className="text-3xl font-bold text-white mb-2">3</div>
+              <div className="text-xl text-white/70 font-medium">
+                Refine With New Leads
+              </div>
             </div>
           </motion.div>
 
@@ -152,7 +158,7 @@ export default function Hero() {
           >
             <div className="flex items-center space-x-2">
               <Sparkles className="w-5 h-5" />
-              <span className="text-sm font-medium">Setup in 48 hours</span>
+              <span className="text-sm font-medium">Setup in 14-21 days</span>
             </div>
             <div className="flex items-center space-x-2">
               <Target className="w-5 h-5" />

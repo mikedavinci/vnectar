@@ -10,14 +10,14 @@ export default function Footer() {
     {
       icon: Mail,
       label: 'Email',
-      value: 'hello@visionnectar.com',
-      href: 'mailto:hello@visionnectar.com',
+      value: 'support@visionnectar.com',
+      href: 'mailto:support@visionnectar.com',
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      value: '+1 (956) 605-8337',
+      href: 'tel:+19566058337',
     },
   ];
 
@@ -71,22 +71,28 @@ export default function Footer() {
             </p>
             <div className="flex items-center space-x-6">
               <a
-                href="#"
+                href="/privacy-policy"
                 className="text-primary-600 hover:text-primary-950 text-sm transition-colors duration-300"
               >
                 Privacy Policy
               </a>
               <a
-                href="#"
+                href="/terms-of-service"
                 className="text-primary-600 hover:text-primary-950 text-sm transition-colors duration-300"
               >
                 Terms of Service
               </a>
               <a
-                href="#"
+                href="/cookies"
                 className="text-primary-600 hover:text-primary-950 text-sm transition-colors duration-300"
               >
                 Cookies
+              </a>
+              <a
+                href="/sign-in"
+                className="text-primary-600 hover:text-primary-950 text-sm transition-colors duration-300"
+              >
+                Admin Login
               </a>
             </div>
           </div>

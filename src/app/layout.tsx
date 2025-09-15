@@ -1,9 +1,10 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Playfair_Display, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ScrollProgress from '@/components/ScrollProgress';
+import ConditionalLayout from '@/components/ConditionalLayout';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -49,7 +50,11 @@ export const metadata: Metadata = {
       'Join others using Vision Nectar to automate workflows, capture more leads, and scale faster.',
     creator: '@visionnectar',
   },
-  viewport: 'width=device-width, initial-scale=1',
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
   themeColor: '#000000',
 };
 
@@ -67,9 +72,7 @@ export default function RootLayout({
         className={`${inter.className} antialiased bg-white text-primary-950 overflow-x-hidden`}
       >
         <ScrollProgress />
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        <ConditionalLayout>{children}</ConditionalLayout>
       </body>
     </html>
   );

@@ -85,7 +85,7 @@ export default function TestimonialsSection() {
           className="text-center mb-16"
         >
           <motion.h2 variants={itemVariants} className="heading-lg mb-6">
-            Trusted by 500+ Growing Businesses
+            Trusted by businesses
           </motion.h2>
           <motion.p
             variants={itemVariants}
@@ -97,7 +97,7 @@ export default function TestimonialsSection() {
         </motion.div>
 
         {/* Stats */}
-        <motion.div
+        {/* <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
@@ -115,7 +115,7 @@ export default function TestimonialsSection() {
               <div className="text-primary-600 font-medium">{stat.label}</div>
             </motion.div>
           ))}
-        </motion.div>
+        </motion.div> */}
 
         {/* Testimonials */}
         <motion.div

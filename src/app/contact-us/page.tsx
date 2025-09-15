@@ -38,8 +38,10 @@ export default function ContactUsPage() {
               Let's Transform Your Business
             </h1>
             <p className="body-lg text-white/80 max-w-3xl mx-auto drop-shadow-lg">
-              Ready to join <span className="font-bold text-white">500+ businesses</span> scaling with AI? Fill out the form below and our team 
-              will create a custom strategy for your business within 24 hours.
+              Ready to join businesse{' '}
+              <span className="font-bold text-white">scaling with AI</span>?
+              Fill out the form below and our team will create a custom strategy
+              for your business within 24 hours.
             </p>
           </motion.div>
         </div>

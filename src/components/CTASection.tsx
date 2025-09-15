@@ -36,15 +36,11 @@ export default function CTASection() {
   const benefits = [
     {
       icon: Clock,
-      text: 'Setup in 48 hours',
-    },
-    {
-      icon: Shield,
-      text: 'Money-back guarantee',
+      text: 'Setup in 14-21 days',
     },
     {
       icon: Sparkles,
-      text: 'ROI guaranteed in 30 days',
+      text: '10 New leads in 30 days',
     },
   ];
 
@@ -141,12 +137,12 @@ export default function CTASection() {
             </Link>
           </motion.div>
 
-          <motion.p
+          {/* <motion.p
             variants={itemVariants}
             className="text-sm text-primary-300"
           >
             No setup fees • No hidden costs • Cancel anytime
-          </motion.p>
+          </motion.p> */}
         </motion.div>
       </div>
     </section>
