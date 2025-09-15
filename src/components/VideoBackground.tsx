@@ -8,13 +8,15 @@ interface VideoBackgroundProps {
   className?: string;
 }
 
-export default function VideoBackground({ 
-  children, 
+export default function VideoBackground({
+  children,
   overlayOpacity = 85,
-  className = "" 
+  className = '',
 }: VideoBackgroundProps) {
   return (
-    <section className={`relative min-h-screen flex items-center justify-center overflow-hidden ${className}`}>
+    <section
+      className={`relative min-h-screen justify-center overflow-hidden ${className} py-20`}
+    >
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
@@ -26,13 +28,11 @@ export default function VideoBackground({
         >
           <source src="/images/855564-hd_1280_720_24fps.mp4" type="video/mp4" />
         </video>
-        <div className={`absolute inset-0 bg-black/40 backdrop-blur-[1px]`} />
+        <div className={`absolute inset-0 bg-black/50 backdrop-blur-[1px]`} />
       </div>
 
       {/* Content */}
-      <div className="relative z-20 w-full">
-        {children}
-      </div>
+      <div className="relative z-20 w-full">{children}</div>
     </section>
   );
 }

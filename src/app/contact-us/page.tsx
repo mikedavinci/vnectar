@@ -20,7 +20,7 @@ export default function ContactUsPage() {
           >
             <Link
               href="/"
-              className="inline-flex items-center space-x-2 text-primary-700 hover:text-primary-950 transition-colors duration-300 group"
+              className="inline-flex items-center space-x-2 text-white/80 hover:text-yellow-400 transition-colors duration-300 group drop-shadow-lg"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300" />
               <span className="font-medium">Back to Home</span>
@@ -34,11 +34,11 @@ export default function ContactUsPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center mb-12"
           >
-            <h1 className="heading-lg mb-6">
+            <h1 className="heading-lg mb-6 text-white drop-shadow-lg">
               Let's Transform Your Business
             </h1>
-            <p className="body-lg text-primary-600 max-w-3xl mx-auto">
-              Ready to join 500+ businesses scaling with AI? Fill out the form below and our team 
+            <p className="body-lg text-white/80 max-w-3xl mx-auto drop-shadow-lg">
+              Ready to join <span className="font-bold text-white">500+ businesses</span> scaling with AI? Fill out the form below and our team 
               will create a custom strategy for your business within 24 hours.
             </p>
           </motion.div>

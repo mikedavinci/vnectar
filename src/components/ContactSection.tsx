@@ -87,21 +87,21 @@ export default function ContactSection({
     {
       icon: Mail,
       title: 'Email Us',
-      content: 'hello@visionnectar.com',
-      description: 'Get a response within 2 hours',
+      content: 'support@visionnectar.com',
+      description: 'Get a response within 48 hours',
     },
     {
       icon: Phone,
       title: 'Call Us',
-      content: '+1 (555) 123-4567',
-      description: 'Mon-Fri 9AM-6PM PST',
+      content: '+1 (956) 605-8337',
+      description: 'Text or call',
     },
-    {
-      icon: MapPin,
-      title: 'Visit Us',
-      content: 'San Francisco, CA',
-      description: 'Schedule an in-person meeting',
-    },
+    // {
+    //   icon: MapPin,
+    //   title: 'Visit Us',
+    //   content: 'San Francisco, CA',
+    //   description: 'Schedule an in-person meeting',
+    // },
   ];
 
   const services = [
@@ -188,7 +188,9 @@ export default function ContactSection({
             className="space-y-8"
           >
             <motion.div variants={itemVariants}>
-              <h3 className="heading-sm mb-8">Get in Touch</h3>
+              <h3 className="heading-sm mb-8 text-white drop-shadow-lg">
+                Get in Touch
+              </h3>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <motion.div
@@ -227,18 +229,18 @@ export default function ContactSection({
                 <div className="flex items-center space-x-3">
                   <Clock className="w-5 h-5 text-green-600" />
                   <span className="text-primary-700">
-                    48-hour setup guarantee
+                    14 days setup guarantee
                   </span>
                 </div>
-                <div className="flex items-center space-x-3">
+                {/* <div className="flex items-center space-x-3">
                   <Users className="w-5 h-5 text-blue-600" />
                   <span className="text-primary-700">
                     500+ successful projects
                   </span>
-                </div>
+                </div> */}
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-5 h-5 text-purple-600" />
-                  <span className="text-primary-700">30-day ROI guarantee</span>
+                  <span className="text-primary-700">90-day ROI guarantee</span>
                 </div>
               </div>
             </motion.div>
@@ -404,10 +406,12 @@ export default function ContactSection({
                 )}
               </motion.button>
 
-              <p className="text-xs text-primary-500 text-center font-medium bg-primary-25 px-4 py-2 rounded-lg">
-                By submitting this form, you agree to our privacy policy. We'll
-                respond within 2 hours during business hours.
-              </p>
+              <div>
+                <p className="text-xs text-primary-500 text-center font-medium bg-primary-25 px-4 py-2 rounded-lg">
+                  By submitting this form, you agree to our privacy policy.
+                  We'll respond within 2 hours during business hours.
+                </p>
+              </div>
             </form>
           </motion.div>
         </div>

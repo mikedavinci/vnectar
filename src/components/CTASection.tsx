@@ -49,7 +49,10 @@ export default function CTASection() {
   ];
 
   return (
-    <section ref={ref} className="section-padding bg-gradient-to-br from-primary-950 via-primary-900 to-primary-950 text-white relative overflow-hidden">
+    <section
+      ref={ref}
+      className="section-padding bg-gradient-to-br from-primary-950 via-primary-900 to-primary-950 text-white relative overflow-hidden"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -60,7 +63,7 @@ export default function CTASection() {
           transition={{
             duration: 20,
             repeat: Infinity,
-            ease: "linear",
+            ease: 'linear',
           }}
           className="absolute -top-40 -right-40 w-80 h-80 bg-primary-800 rounded-full opacity-20"
         />
@@ -72,7 +75,7 @@ export default function CTASection() {
           transition={{
             duration: 25,
             repeat: Infinity,
-            ease: "linear",
+            ease: 'linear',
           }}
           className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary-800 rounded-full opacity-20"
         />
@@ -82,21 +85,30 @@ export default function CTASection() {
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          animate={inView ? "visible" : "hidden"}
+          animate={inView ? 'visible' : 'hidden'}
           className="text-center max-w-4xl mx-auto"
         >
           <motion.h2 variants={itemVariants} className="heading-lg mb-6">
             Ready to Transform Your Business?
           </motion.h2>
-          <motion.p variants={itemVariants} className="body-lg text-primary-200 mb-8">
-            Join 500+ businesses already scaling with Vision Nectar. Get your AI-powered 
+          <motion.p
+            variants={itemVariants}
+            className="body-lg text-primary-200 mb-8"
+          >
+            Join others already scaling with Vision Nectar. Get your AI-powered
             growth system set up in just 48 hours with our money-back guarantee.
           </motion.p>
 
           {/* Benefits */}
-          <motion.div variants={itemVariants} className="flex flex-wrap justify-center items-center gap-8 mb-12">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap justify-center items-center gap-8 mb-12"
+          >
             {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-center space-x-2 text-primary-200">
+              <div
+                key={index}
+                className="flex items-center space-x-2 text-primary-200"
+              >
                 <benefit.icon className="w-5 h-5" />
                 <span className="font-medium">{benefit.text}</span>
               </div>
@@ -104,7 +116,10 @@ export default function CTASection() {
           </motion.div>
 
           {/* CTA Buttons */}
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
+          >
             <Link href="/contact-us">
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -126,7 +141,10 @@ export default function CTASection() {
             </Link>
           </motion.div>
 
-          <motion.p variants={itemVariants} className="text-sm text-primary-300">
+          <motion.p
+            variants={itemVariants}
+            className="text-sm text-primary-300"
+          >
             No setup fees • No hidden costs • Cancel anytime
           </motion.p>
         </motion.div>

@@ -42,7 +42,11 @@ export default function Header() {
               alt="Vision Nectar"
               width={120}
               height={40}
-              className="h-8 sm:h-10 w-auto transition-all duration-300 hover:scale-105"
+              className={`h-8 sm:h-10 w-auto transition-all duration-300 hover:scale-105 ${
+                isScrolled 
+                  ? 'brightness-0' 
+                  : 'brightness-0 invert'
+              }`}
               priority
             />
           </div>
@@ -53,14 +57,14 @@ export default function Header() {
               <a
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-medium transition-all duration-300 hover:text-primary-600 relative group animate-slide-down ${
-                  isScrolled ? 'text-primary-800' : 'text-primary-950 drop-shadow-sm'
+                className={`text-sm font-medium transition-all duration-300 hover:text-yellow-400 relative group animate-slide-down ${
+                  isScrolled ? 'text-primary-800' : 'text-white drop-shadow-lg'
                 }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {item.name}
                 <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                  isScrolled ? 'bg-primary-800' : 'bg-primary-950'
+                  isScrolled ? 'bg-primary-800' : 'bg-yellow-400'
                 }`}></span>
               </a>
             ))}
@@ -84,7 +88,7 @@ export default function Header() {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`p-2 rounded-md transition-colors duration-300 ${
-                isScrolled ? 'text-primary-800 hover:bg-primary-100' : 'text-primary-950 hover:bg-primary-100/20 drop-shadow-sm'
+                isScrolled ? 'text-primary-800 hover:bg-primary-100' : 'text-white hover:bg-white/20 drop-shadow-lg'
               }`}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}

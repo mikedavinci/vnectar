@@ -2,7 +2,17 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Check, Star, Crown, Zap, ArrowRight, MessageCircle, Instagram, Phone, Video } from 'lucide-react';
+import {
+  Check,
+  Star,
+  Crown,
+  Zap,
+  ArrowRight,
+  MessageCircle,
+  Instagram,
+  Phone,
+  Video,
+} from 'lucide-react';
 import Link from 'next/link';
 
 export default function PricingSection() {
@@ -84,7 +94,7 @@ export default function PricingSection() {
         '🏠 Landing page to on ramp users to AI Chatbot',
         '📱 Facebook, Instagram, Whatsapp, Live Chat',
         '🚀 Run 2 Social media campaigns ($400 minimum budget)',
-        '🤖 AI Powered using Anthropic\'s Claude Sonnet model',
+        "🤖 AI Powered using Anthropic's Claude Sonnet model",
       ],
       cta: '⭐ Scale My Business',
       highlights: ['🚀 Advanced automation', '📈 3x ROI guarantee'],
@@ -130,7 +140,7 @@ export default function PricingSection() {
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          animate={inView ? "visible" : "hidden"}
+          animate={inView ? 'visible' : 'hidden'}
           className="text-center mb-16"
         >
           <motion.div variants={cardVariants} className="mb-6">
@@ -142,16 +152,20 @@ export default function PricingSection() {
           <motion.h2 variants={cardVariants} className="heading-lg mb-6">
             Transform Your Business with AI
           </motion.h2>
-          <motion.p variants={cardVariants} className="body-md text-primary-600 max-w-3xl mx-auto">
-            Join 500+ businesses already using Vision Nectar to automate their workflows, 
-            capture more leads, and scale faster than ever before. Choose the plan that matches your growth ambitions.
+          <motion.p
+            variants={cardVariants}
+            className="body-md text-primary-600 max-w-3xl mx-auto"
+          >
+            Join other businesses already using Vision Nectar to automate their
+            workflows, capture more leads, and scale faster than ever before.
+            Choose the plan that matches your growth ambitions.
           </motion.p>
         </motion.div>
 
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          animate={inView ? "visible" : "hidden"}
+          animate={inView ? 'visible' : 'hidden'}
           className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
         >
           {plans.map((plan, index) => (
@@ -160,14 +174,18 @@ export default function PricingSection() {
               variants={cardVariants}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className={`relative bg-white rounded-2xl shadow-soft border-2 transition-all duration-300 hover:shadow-strong ${
-                plan.popular ? 'border-orange-200 ring-2 ring-orange-100 shadow-orange-100/50' : 
-                plan.premium ? 'border-purple-200 ring-2 ring-purple-100 shadow-purple-100/50' : 
-                'border-primary-200 hover:border-primary-300 hover:shadow-primary-100/50'
+                plan.popular
+                  ? 'border-orange-200 ring-2 ring-orange-100 shadow-orange-100/50'
+                  : plan.premium
+                  ? 'border-purple-200 ring-2 ring-purple-100 shadow-purple-100/50'
+                  : 'border-primary-200 hover:border-primary-300 hover:shadow-primary-100/50'
               }`}
             >
               {/* Badge */}
               {plan.badge && (
-                <div className={`absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-2 ${plan.badgeColor} text-white text-sm font-bold rounded-full shadow-xl animate-pulse`}>
+                <div
+                  className={`absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-2 ${plan.badgeColor} text-white text-sm font-bold rounded-full shadow-xl animate-pulse`}
+                >
                   {plan.badge}
                 </div>
               )}
@@ -180,44 +198,69 @@ export default function PricingSection() {
                 {plan.premium && (
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-transparent rounded-2xl pointer-events-none" />
                 )}
-                
+
                 {/* Header */}
                 <div className="text-center mb-8 relative z-10">
-                  <h3 className="text-2xl font-bold text-primary-950 mb-2">{plan.name}</h3>
-                  <p className="text-primary-600 mb-6 font-medium">{plan.subtitle}</p>
-                  
+                  <h3 className="text-2xl font-bold text-primary-950 mb-2">
+                    {plan.name}
+                  </h3>
+                  <p className="text-primary-600 mb-6 font-medium">
+                    {plan.subtitle}
+                  </p>
+
                   {/* Platforms */}
                   <div className="flex flex-wrap justify-center gap-2 mb-8">
                     {plan.platforms.map((platform, idx) => (
-                      <div key={idx} className="flex items-center space-x-1 text-xs text-primary-700 bg-primary-100/80 px-3 py-1.5 rounded-full font-medium shadow-sm">
+                      <div
+                        key={idx}
+                        className="flex items-center space-x-1 text-xs text-primary-700 bg-primary-100/80 px-3 py-1.5 rounded-full font-medium shadow-sm"
+                      >
                         <platform.icon className="w-3 h-3" />
-                        <span className="uppercase font-medium">{platform.name}</span>
+                        <span className="uppercase font-medium">
+                          {platform.name}
+                        </span>
                       </div>
                     ))}
                   </div>
 
                   {/* Pricing */}
                   <div className="mb-4">
-                    <div className="text-5xl font-bold text-primary-950 mb-3 font-display">{plan.price}</div>
-                    <div className="text-primary-600 mb-3 text-sm font-medium bg-primary-50 px-3 py-1 rounded-full inline-block">{plan.paymentTerms}</div>
+                    <div className="text-5xl font-bold text-primary-950 mb-3 font-display">
+                      {plan.price}
+                    </div>
+                    <div className="text-primary-600 mb-3 text-sm font-medium bg-primary-50 px-3 py-1 rounded-full inline-block">
+                      {plan.paymentTerms}
+                    </div>
                     <div className="text-lg font-semibold text-primary-800">
                       {plan.monthlyPrice}
-                      {plan.duration && <span className="text-sm font-normal text-primary-600 ml-1">{plan.duration}</span>}
+                      {plan.duration && (
+                        <span className="text-sm font-normal text-primary-600 ml-1">
+                          {plan.duration}
+                        </span>
+                      )}
                     </div>
                   </div>
 
                   {/* Special guarantees */}
                   {plan.guarantee && (
-                    <div className="text-green-600 font-semibold text-sm mb-2">{plan.guarantee}</div>
+                    <div className="text-green-600 font-semibold text-sm mb-2">
+                      {plan.guarantee}
+                    </div>
                   )}
                   {plan.leadGuarantee && (
-                    <div className="text-blue-600 font-semibold text-sm mb-2">{plan.leadGuarantee}</div>
+                    <div className="text-blue-600 font-semibold text-sm mb-2">
+                      {plan.leadGuarantee}
+                    </div>
                   )}
                   {plan.leadMultiplier && (
-                    <div className="text-orange-600 font-semibold text-sm mb-2">{plan.leadMultiplier}</div>
+                    <div className="text-orange-600 font-semibold text-sm mb-2">
+                      {plan.leadMultiplier}
+                    </div>
                   )}
                   {plan.whiteGlove && (
-                    <div className="text-purple-600 font-semibold text-sm mb-2">{plan.whiteGlove}</div>
+                    <div className="text-purple-600 font-semibold text-sm mb-2">
+                      {plan.whiteGlove}
+                    </div>
                   )}
                 </div>
 
@@ -228,7 +271,9 @@ export default function PricingSection() {
                       <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mt-0.5 group-hover:bg-green-200 transition-colors duration-200">
                         <Check className="w-4 h-4 text-green-600" />
                       </div>
-                      <span className="text-sm text-primary-700 leading-relaxed font-medium">{feature}</span>
+                      <span className="text-sm text-primary-700 leading-relaxed font-medium">
+                        {feature}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -239,8 +284,8 @@ export default function PricingSection() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     className={`w-full py-4 px-6 rounded-xl font-bold text-base transition-all duration-300 group relative z-10 ${
-                      plan.popular 
-                        ? 'bg-orange-500 text-white hover:bg-orange-600 shadow-xl hover:shadow-2xl hover:shadow-orange-200/50' 
+                      plan.popular
+                        ? 'bg-orange-500 text-white hover:bg-orange-600 shadow-xl hover:shadow-2xl hover:shadow-orange-200/50'
                         : plan.premium
                         ? 'bg-purple-500 text-white hover:bg-purple-600 shadow-xl hover:shadow-2xl hover:shadow-purple-200/50'
                         : 'bg-primary-950 text-white hover:bg-primary-800 shadow-xl hover:shadow-2xl'
@@ -254,7 +299,12 @@ export default function PricingSection() {
                 {/* Highlights */}
                 <div className="mt-6 text-center space-y-2 relative z-10">
                   {plan.highlights.map((highlight, idx) => (
-                    <div key={idx} className="text-xs text-primary-600 font-medium bg-primary-50/50 px-2 py-1 rounded-full inline-block mx-1">{highlight}</div>
+                    <div
+                      key={idx}
+                      className="text-xs text-primary-600 font-medium bg-primary-50/50 px-2 py-1 rounded-full inline-block mx-1"
+                    >
+                      {highlight}
+                    </div>
                   ))}
                 </div>
               </div>
@@ -266,7 +316,7 @@ export default function PricingSection() {
         <motion.div
           variants={cardVariants}
           initial="hidden"
-          animate={inView ? "visible" : "hidden"}
+          animate={inView ? 'visible' : 'hidden'}
           className="mt-16 text-center"
         >
           <button className="inline-flex items-center px-6 py-3 bg-primary-100 text-primary-800 rounded-full font-medium hover:bg-primary-200 transition-colors duration-300">

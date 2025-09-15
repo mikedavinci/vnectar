@@ -66,7 +66,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="container-custom relative z-20 pt-20">
+      <div className="container-custom relative z-20 pt-20 pb-20">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -83,18 +83,19 @@ export default function Hero() {
 
           {/* Main Headline */}
           <motion.h1 variants={itemVariants} className="heading-xl mb-6">
-            <span className="gradient-text">Transform Your Business</span>
+            <span className="text-white font-bold bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+              Transform Your Business
+            </span>
             <br />
-            <span className="text-primary-950">with AI</span>
+            <span className="text-white">with AI</span>
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p
             variants={itemVariants}
-            className="body-lg text-primary-500 mb-8 max-w-3xl mx-auto"
+            className="body-lg text-white/80 mb-8 max-w-3xl mx-auto"
           >
-            Join{' '}
-            <span className="font-bold text-primary-950">500+ businesses</span>{' '}
+            Join <span className="font-bold text-white"> businesses</span>{' '}
             already using Vision Nectar to automate their workflows, capture
             more leads, and scale faster than ever before. Choose the plan that
             matches your growth ambitions.
@@ -106,22 +107,16 @@ export default function Hero() {
             className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12 max-w-2xl mx-auto"
           >
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary-950 mb-2">
-                500+
-              </div>
-              <div className="text-sm text-primary-500">Active Businesses</div>
+              <div className="text-3xl font-bold text-white mb-2">$100k+</div>
+              <div className="text-sm text-white/70">Average Savings</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary-950 mb-2">
-                10x
-              </div>
-              <div className="text-sm text-primary-500">Lead Generation</div>
+              <div className="text-3xl font-bold text-white mb-2">10x</div>
+              <div className="text-sm text-white/70">Lead Generation</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary-950 mb-2">
-                30 Days
-              </div>
-              <div className="text-sm text-primary-500">ROI Guarantee</div>
+              <div className="text-3xl font-bold text-white mb-2">30 Days</div>
+              <div className="text-sm text-white/70">ROI Guarantee</div>
             </div>
           </motion.div>
 
@@ -153,7 +148,7 @@ export default function Hero() {
           {/* Feature Icons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap justify-center items-center gap-8 text-primary-600"
+            className="flex flex-wrap justify-center items-center gap-8 text-white/80"
           >
             <div className="flex items-center space-x-2">
               <Sparkles className="w-5 h-5" />
@@ -172,7 +167,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
@@ -189,7 +184,7 @@ export default function Hero() {
             className="w-1 h-3 bg-primary-800 rounded-full mt-2"
           />
         </motion.div>
-      </motion.div>
+      </motion.div> */}
     </VideoBackground>
   );
 }
