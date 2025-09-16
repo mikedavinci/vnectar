@@ -2,7 +2,7 @@
 
 import { motion, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ArrowRight, Sparkles, Clock, Shield } from 'lucide-react';
+import { ArrowRight, Sparkles, Clock } from 'lucide-react';
 import Link from 'next/link';
 
 export default function CTASection() {
@@ -136,13 +136,6 @@ export default function CTASection() {
               </motion.button>
             </Link>
           </motion.div>
-
-          {/* <motion.p
-            variants={itemVariants}
-            className="text-sm text-primary-300"
-          >
-            No setup fees • No hidden costs • Cancel anytime
-          </motion.p> */}
         </motion.div>
       </div>
     </section>

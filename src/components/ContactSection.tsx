@@ -113,7 +113,7 @@ export default function ContactSection({
     {
       icon: Phone,
       title: 'Call Us',
-      content: '+1 (956) 605-8337',
+      content: '+1 (956) 320-1284',
       description: 'Text or call',
     },
     // {
@@ -339,7 +339,7 @@ export default function ContactSection({
                     {...register('phone')}
                     type="tel"
                     className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 bg-white shadow-sm hover:shadow-md focus:shadow-lg"
-                    placeholder="+1 (956) 605-8337"
+                    placeholder="+1 (956) 320-1284"
                   />
                 </div>
               </div>

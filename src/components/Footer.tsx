@@ -16,8 +16,8 @@ export default function Footer() {
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (956) 605-8337',
-      href: 'tel:+19566058337',
+      value: '+1 (956) 320-1284',
+      href: 'tel:+19563201284',
     },
   ];
 
