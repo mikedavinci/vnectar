@@ -26,7 +26,10 @@ export default function VideoBackground({
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="/images/855564-hd_1280_720_24fps.mp4" type="video/mp4" />
+          <source
+            src="/images/w5473968-uhd_4096_2160_25fps.mp4"
+            type="video/mp4"
+          />
         </video>
         <div className={`absolute inset-0 bg-black/50 backdrop-blur-[1px]`} />
       </div>
