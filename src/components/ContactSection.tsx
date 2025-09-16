@@ -14,7 +14,7 @@ import {
   Clock,
   Users,
 } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -42,6 +42,11 @@ export default function ContactSection({
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const {
     register,
@@ -183,7 +188,7 @@ export default function ContactSection({
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            animate={inView ? 'visible' : 'hidden'}
+            animate={isMounted && inView ? 'visible' : 'hidden'}
             className="text-center mb-16"
           >
             <motion.h2 variants={itemVariants} className="heading-lg mb-6">
@@ -204,7 +209,7 @@ export default function ContactSection({
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            animate={inView ? 'visible' : 'hidden'}
+            animate={isMounted && inView ? 'visible' : 'hidden'}
             className="space-y-8"
           >
             <motion.div variants={itemVariants}>
@@ -270,7 +275,7 @@ export default function ContactSection({
           <motion.div
             variants={itemVariants}
             initial="hidden"
-            animate={inView ? 'visible' : 'hidden'}
+            animate={isMounted && inView ? 'visible' : 'hidden'}
             className={`bg-white rounded-2xl p-8 shadow-soft ${
               isStandalonePage
                 ? 'shadow-strong backdrop-blur-sm bg-white/95'

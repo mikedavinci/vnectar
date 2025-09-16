@@ -24,7 +24,7 @@ export default function VideoBackground({
           muted
           loop
           playsInline
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center md:object-top"
         >
           <source
             src="/images/w5473968-uhd_4096_2160_25fps.mp4"
