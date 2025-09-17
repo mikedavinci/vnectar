@@ -27,7 +27,7 @@ export default function VideoBackground({
           className="w-full h-full object-cover object-center md:object-top"
         >
           <source
-            src="/images/w5473968-uhd_4096_2160_25fps.mp4"
+            src="/images/moving12149177_1280_720_24fps.mp4"
             type="video/mp4"
           />
         </video>

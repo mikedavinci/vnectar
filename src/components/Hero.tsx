@@ -66,7 +66,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="container-custom relative z-20 pt-20 pb-20">
+      <div className="container-custom relative z-20 pt-20 ">
         <motion.div
           variants={containerVariants}
           initial="hidden"
