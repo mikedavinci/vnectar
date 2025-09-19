@@ -95,10 +95,13 @@ export default function Hero() {
             variants={itemVariants}
             className="body-lg text-white/80 mb-8 max-w-3xl mx-auto"
           >
-            Join <span className="font-bold text-white"> businesses</span>{' '}
-            already using Vision Nectar to automate their workflows, capture
-            more leads, and scale faster than ever before. Choose the plan that
-            matches your growth ambitions.
+            Unlock the future of{' '}
+            <span className="font-bold text-white">
+              {' '}
+              marketing and sales automation
+            </span>{' '}
+            today. Integrate cutting-edge AI technology to streamline your
+            workflows, enhance customer engagement, and boost sales performance.
           </motion.p>
 
           {/* Three-Step Process */}
